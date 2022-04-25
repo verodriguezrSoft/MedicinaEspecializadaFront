@@ -1,0 +1,24 @@
+:host {
+    flex: 1 1 100%;
+    display: flex;
+    flex-flow: column;
+  }
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidenav {
+    flex: 0 0 200px;
+    background-color: blue;
+}
+
+.content {
+    background-color: red;
+    flex: 1;
+}
+
+app-toolbar, app-navbar{
+  z-index: 10; 
+}
