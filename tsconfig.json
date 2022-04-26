@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -22,22 +22,22 @@
     ],
     "paths": {
       "@core/*": [
-        "./app/core/*"
+        "src/app/core/*"
       ],
       "@core-service/*": [
-        "./app/core/services/*"
+        "src/app/core/services/*"
       ],
       "@home/*": [
-        "./app/feature/home/*"
+        "src/app/feature/home/*"
       ],
       "@producto/*": [
-        "./app/feature/producto/*"
+        "src/app/feature/producto/*"
       ],
-      // "@cita/*": [
-      //   "./app/feature/cita/*"
-      // ],
+      "@cita/*": [
+        "src/app/feature/cita/*"
+      ],
       "@shared/*": [
-        "./app/shared/*"
+        "src/app/shared/*"
       ]
     }
   },

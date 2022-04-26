@@ -1,6 +1,5 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-
 import { CitaService } from './cita.service';
 
 describe('CitaService', () => {
