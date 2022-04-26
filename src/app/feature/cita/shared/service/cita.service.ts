@@ -10,16 +10,16 @@ export class CitaService {
 
   constructor(protected http: HttpService) {}
 
-  public consultar() {
+  public consultarCita() {
     return this.http.doGet<Cita[]>(`${environment.endpoint}/citas`, this.http.optsName('consultar citas'));
   }
 
-  public guardar(producto: Cita) {
+  public guardarCita(producto: Cita) {
     return this.http.doPost<Cita, boolean>(`${environment.endpoint}/citas`, producto,
                                                 this.http.optsName('crear/actualizar citas'));
   }
 
-  public eliminar(producto: Cita) {
+  public eliminaCita(producto: Cita) {
     return this.http.doDelete<boolean>(`${environment.endpoint}/citas/${producto.id}`,
                                                  this.http.optsName('eliminar citas'));
   }

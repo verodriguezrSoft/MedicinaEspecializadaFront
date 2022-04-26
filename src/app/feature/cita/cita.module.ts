@@ -9,7 +9,6 @@ import { CitaComponent } from './components/cita/cita.component';
 import { CitaService } from './shared/service/cita.service';
 
 
-
 @NgModule({
   declarations: [
     BorrarCitaComponent,
