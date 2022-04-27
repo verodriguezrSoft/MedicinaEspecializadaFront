@@ -7,12 +7,6 @@ interface Especialidad {
   nombreEspecialidad: string
 }
 
-interface Car {
-  value: string;
-  viewValue: string;
-}
-
-
 @Component({
   selector: 'app-crear-cita',
   templateUrl: './crear-cita.component.html',
@@ -21,9 +15,6 @@ interface Car {
 export class CrearCitaComponent implements OnInit {
 
   citaForm: FormGroup;
-  selectedCar: string;
-
-  selected = 'option2';
   selectedEspecialidad: string;
   especialidades: Especialidad [] = [
     {id: 1, nombreEspecialidad:'Cardiología clinica'},
@@ -45,11 +36,5 @@ export class CrearCitaComponent implements OnInit {
   update(event){
     this.selectedEspecialidad = event.target.value;
   }
-
-  cars: Car[] = [
-    {value: 'volvo', viewValue: 'Volvo'},
-    {value: 'saab', viewValue: 'Saab'},
-    {value: 'mercedes', viewValue: 'Mercedes'},
-  ];
 
 }
