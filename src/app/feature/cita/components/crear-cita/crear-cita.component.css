@@ -1,4 +1,4 @@
-.fondo {
+/* .fondo {
     background-color: rgb(235, 235, 235);
     border-radius: 20px;
 }
@@ -76,4 +76,11 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     font-weight: 700;
-}
+} */
+
+/* .parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  } */
