@@ -1,0 +1,79 @@
+.fondo {
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+}
+
+.centrar-boton {
+    text-align: center;
+}
+
+.ovalo {
+    background-color: white;
+    border: none;
+    border-radius: 30px;
+    height: 42px;
+    width: 205px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    padding: 5px 20px;
+}
+
+.tamaño-contenido {
+    background-color: white;
+    margin-top: 30px;
+    border-radius: 30px;
+}
+
+.tamaño-contenido h1 {
+    text-align: center;
+    padding-top: 45px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.row {
+    margin-top: 30px;
+}
+
+.form-label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.form-control,
+.form-select {
+    height: 42px;
+    background-color: rgb(240, 240, 240);
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 10px;
+}
+
+.form-check-input {
+    width: 25px;
+    height: 25px;
+    border-radius: 20px;
+}
+
+.form-check-label {
+    padding-left: 15px;
+    padding-top: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.form-check-label span {
+    color: rgb(0, 255, 192);
+}
+
+.btn {
+    width: 100%;
+    height: 54px;
+    border-radius: 60px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}

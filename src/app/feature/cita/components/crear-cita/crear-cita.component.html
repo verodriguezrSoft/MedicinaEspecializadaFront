@@ -1,11 +1,65 @@
-<div class="container">
-    <div>
-        <h1>Crear cita</h1>
-        <form>
-            <div class="form-group">
-                <label for="name">Id Cliente</label>
-                <input type="text" class="form-control" id="id">
-            </div>
-        </form>
+<div class="container fondo mt-5 pb-3 wow animate_animated animate_jello ">
+  <div class="" style="text-align: center;">
+    <h1>Pide tu cita</h1>
+  </div>
+  <div class="container mt-1 mb-3 ">
+    <div class="tamaño-contenido">
+
+      <form [formGroup]="citaForm">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 ps-4 pe-4 ">
+          <div class=" mb-4">
+            <label class="form-label">Identificacion Usuario</label>
+            <input name="id" type="text" class="form-control" formControlName="id" >
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 ps-4 pe-4 ">
+          <div class=" mb-4">
+            <label class="form-label">Fecha Cita</label>
+            <input name="fechacita" type="datetime-local" class="form-control" formControlName="fechacita" >
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 ps-4 pe-4 ">
+          <label for="disabledSelect" class="form-control" formControlName="especialidad">Especialidades</label>
+          <div class="dropdown">
+            <select class="form-select" #cricket (change)="update($event)">
+              <option value="default">----</option>
+              <option  [value]="item.value" *ngFor="let item of especialidades">
+                {{item.nombreEspecialidad}}
+              </option>
+            </select>
+            <p>You selected {{selectedEspecialidad}}</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 ps-4 pe-4">
+          <div class=" mb-4">
+            <label class="form-label">Médico Especialista</label>
+            <input type="text" class="form-control" formControlName="medico">
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 ps-4 pe-4 ">
+          <div class=" mb-4">
+            <label class="form-label">Tipo Moneda </label>
+            <input type="number" class="form-control" formControlName="moneda">
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 ps-4 pe-4 ">
+          <div class=" mb-4">
+            <label for="disabledSelect" class="form-label" > Especialidades</label>
+            <select class="form-select">
+              <option>-Selecciona- </option>
+              <option>Peso Colombiano</option>
+              <option>Dolar</option>
+            </select>
+          </div>
+        </div>
+        <button (click)="guardarCita()" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
     </div>
+  </div>
 </div>

@@ -8,8 +8,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
   { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
-  { path: 'cita', loadChildren: () => import('@cita/cita.module').then(mod => mod.CitaModule) }
-  // { path: 'cita', loadChildren: () => import('./feature/cita/cita.module').then(mod => mod.CitaModule) }
+  // { path: 'cita', loadChildren: () => import('@cita/cita.module').then(mod => mod.CitaModule) }
+  { path: 'cita', loadChildren: () => import('./feature/cita/cita.module').then(mod => mod.CitaModule) }
 ];
 
 @NgModule({

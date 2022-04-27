@@ -33,9 +33,9 @@
       "@producto/*": [
         "src/app/feature/producto/*"
       ],
-      "@cita/*": [
-        "src/app/feature/cita/*"
-      ],
+      // "@cita/*": [
+      //   "src/app/feature/cita/*"
+      // ],
       "@shared/*": [
         "src/app/shared/*"
       ]
