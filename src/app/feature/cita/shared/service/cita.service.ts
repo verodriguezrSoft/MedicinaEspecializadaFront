@@ -19,8 +19,8 @@ export class CitaService {
                                                 this.http.optsName('crear/actualizar citas'));
   }
 
-  public eliminaCita(cita: Cita) {
-    return this.http.doDelete<boolean>(`${environment.endpoint}/citas/${cita.id}`,
+  public eliminaCita(id: number) {
+    return this.http.doDelete<boolean>(`${environment.endpoint}/citas/${id}`,
                                                  this.http.optsName('eliminar citas'));
   }
 }
