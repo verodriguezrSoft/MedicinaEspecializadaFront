@@ -14,6 +14,10 @@ export class CitaService {
     return this.http.doGet<Cita[]>(`${environment.endpoint}/citas`, this.http.optsName('consultar citas'));
   }
 
+  public consultarCitaPorId(id: number) {
+    return this.http.doGet<Cita>(`${environment.endpoint}/citas/${id}`, this.http.optsName('consultar cita'));
+  }
+
   public guardarCita(cita: Cita) {
     return this.http.doPost<Cita, boolean>(`${environment.endpoint}/citas`, cita,
                                                 this.http.optsName('crear/actualizar citas'));
@@ -23,4 +27,5 @@ export class CitaService {
     return this.http.doDelete<boolean>(`${environment.endpoint}/citas/${id}`,
                                                  this.http.optsName('eliminar citas'));
   }
+
 }

@@ -21,7 +21,7 @@
             <td>{{ cita.valorTRM | number }}</td>
             <td>{{ cita.tipoMoneda }}</td>
             <td>
-                <button class="btn btn-primary" type="button">edit</button>
+                <button class="btn btn-primary" type="button" routerLink="/cita/crear/{{cita.id}}">edit</button>
                 <button class="btn btn-danger" type="button" (click)="eliminarCita(cita.id)">delete</button>
             </td>
         </tr>

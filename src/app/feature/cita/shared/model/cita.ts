@@ -1,5 +1,5 @@
 export class Cita{
-    id: string
+    id: number
     idUsuario: number
     idEspecialidad: number
     fechaCita: Date 
@@ -7,20 +7,8 @@ export class Cita{
     valorTRM: number
     tipoMoneda: string
 
-    // static unRegistroCita(obj: Object){
-    //     return new Cita(
-    //         obj['id'],
-    //         obj['idUsuario'],
-    //         obj['fechaCita'],
-    //         obj['idEspecialidad'],
-    //         obj['idMedico'],
-    //         obj['precioCita'],
-    //         obj['tipoMoneda'],
-    //     )
-    // }
-
     constructor( 
-        id: string,
+        id: number,
         idUsuario: number,
         idEspecialidad: number,
         fechaCita: Date,

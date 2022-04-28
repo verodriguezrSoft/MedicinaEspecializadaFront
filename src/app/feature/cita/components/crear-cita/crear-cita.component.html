@@ -2,14 +2,14 @@
   <p class="h4 mb-4">Agende su cita</p>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Identificación del usuario</label>
+      <label for="idUsuario">Identificación del usuario</label>
       <input validar type="number" id="idUsuario" name="idUsuario" class="form-control" placeholder="Identificación"
-      formControlName="idUsuario">
+      formControlName="idUsuario" >
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Fecha cita</label>
-      <input type="datetime-local"  id="fechaCita" name="fechaCita" class="form-control" id="inputPassword4" placeholder="Password"
-      formControlName="fechaCita">
+      <label for="fechaCita">Fecha cita</label>
+      <input type="datetime-local"  id="fechaCita" name="fechaCita" class="form-control" placeholder="Password"
+      formControlName="fechaCita" >
     </div>
   </div>
 
@@ -18,18 +18,18 @@
     <div class="form-group col-md-6">
       <label class="form-label">Especialidades</label>
       <div class="dropdown">
-        <select class="custom-select mr-sm-4" (change)="update($event)" id="idEspecialidad" name="idEspecialidad" formControlName="idEspecialidad">
+        <select class="custom-select mr-sm-4"  id="idEspecialidad" name="idEspecialidad" 
+        formControlName="idEspecialidad">
           <option value="default">----</option>
           <option [value]="especialidad.id" *ngFor="let especialidad of especialidades">
             {{especialidad.nombreEspecialidad}}
           </option>
         </select>
-        <p>You selected {{selectedEspecialidad}}</p>
       </div>
     </div>
 
     <div class="form-group col-md-6">
-      <label class="form-label">Médico Especialista</label>
+      <label class="form-label">Tipo moenda</label>
       <div class="dropdown">
         <select class="custom-select mr-sm-4" id="tipoMoneda" name="tipoMoneda" formControlName="tipoMoneda">
           <option value="default">----</option>
@@ -53,14 +53,6 @@
       </select>
     </div>
   </div>
-
-
-  <!-- <div>
-    <div class=" mb-4">
-      <label class="form-label">Médico Especialista</label>
-      <input type="text" class="form-control" id="idMedico" name="idMedico" formControlName="idMedico">
-    </div>
-  </div> -->
 
   <div class="form-row">
     <div class="form-group col-md-6">

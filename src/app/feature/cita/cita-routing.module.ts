@@ -22,6 +22,10 @@ const routes: Routes = [
       {
         path: 'borrar',
         component: BorrarCitaComponent
+      },
+      {
+        path: 'crear/:id',
+        component: CrearCitaComponent
       }
     ]
   }

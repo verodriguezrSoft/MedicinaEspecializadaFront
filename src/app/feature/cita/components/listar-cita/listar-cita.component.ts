@@ -12,7 +12,8 @@ import { CitaService } from '../../shared/service/cita.service';
 export class ListarCitaComponent implements OnInit {
 
   citaForm: FormGroup;
-  public citas: Cita [] = []; 
+  public citas: Cita [] = [];
+
 
   constructor(
     protected citaService: CitaService) {
@@ -33,8 +34,8 @@ export class ListarCitaComponent implements OnInit {
     );
   }
 
-  public eliminarCita(cita): void{
-    this.citaService.eliminaCita(cita).subscribe(
+  public eliminarCita(id: number): void{
+    this.citaService.eliminaCita(id).subscribe(
       (response: boolean) => {
         console.log(response);
         this.getCitas();
@@ -44,6 +45,4 @@ export class ListarCitaComponent implements OnInit {
       } 
     );
   }
-
-
 }
