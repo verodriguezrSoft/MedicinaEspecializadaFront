@@ -149,8 +149,9 @@ export class CrearCitaComponent implements OnInit {
     this.citaForm.controls['idMedico'].setValue(cita.idMedico);
   }
 
-  public eliminarCita(id: number): void {
-    this.citaService.eliminaCita(id).subscribe(
+  public eliminarCita(): void {
+    console.log('Guardar' + this.citaForm.value.id)
+    this.citaService.eliminaCita(this.citaForm.value.id).subscribe(
       (response: boolean) => {
         console.log(response);
         this.router.navigate(['cita/listar'])
@@ -159,6 +160,12 @@ export class CrearCitaComponent implements OnInit {
         alert(error.message)
       }
     );
+  }
+
+
+  public cancelar(): void {
+    this.router.navigate(['cita/listar'])
+    this.citaForm.reset();
   }
 
 }
