@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { CitaComponent } from './components/cita/cita.component';
 import { CrearCitaComponent } from './components/crear-cita/crear-cita.component';
 import { ListarCitaComponent } from './components/listar-cita/listar-cita.component';
-import { BorrarCitaComponent } from './components/borrar-cita/borrar-cita.component';
 
 
 const routes: Routes = [
@@ -18,10 +17,6 @@ const routes: Routes = [
       {
         path: 'listar',
         component: ListarCitaComponent
-      },
-      {
-        path: 'borrar',
-        component: BorrarCitaComponent
       },
       {
         path: 'crear/:id',
