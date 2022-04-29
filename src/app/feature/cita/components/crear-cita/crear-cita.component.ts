@@ -4,7 +4,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Especialidad } from '../../shared/model/especialidad';
 import { Medico } from '../../shared/model/medico';
 import { Moneda } from '../../shared/model/moneda';
-// import { Cita } from '../../shared/model/cita';
 import { CitaService } from '../../shared/service/cita.service';
 
 import Swal from 'sweetalert2'
@@ -23,6 +22,7 @@ export class CrearCitaComponent implements OnInit {
   pipe = new DatePipe('en-US');
   idCita: number;
   citaEditar: Cita;
+  public citas: Cita[] = []; s
 
   especialidades: Especialidad[] = [
     { id: 1, nombreEspecialidad: 'Cardiología clinica' },
@@ -81,26 +81,50 @@ export class CrearCitaComponent implements OnInit {
   }
 
   registrarCita(cita: Cita): void {
-    console.log(this.citaForm.value);
-    this.citaService.guardarCita(cita).subscribe(
-      response => {
-        console.log('success', response)
-        Swal.fire({
-          icon: 'success',
-          title: 'Exito',
-          text: 'La cita se ha sido guardado correctamente'
-        })
-        this.router.navigate(['cita/listar'])
-        this.citaForm.reset();
-      },
-      error => {
-        console.log('oops', error)
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: error.error?.['mensaje']
-        })
-      });
+    if (cita.id) {
+      console.log(this.citaForm.value);
+      this.citaService.actualizarCita(cita).subscribe(
+        response => {
+          console.log('success', response)
+          Swal.fire({
+            icon: 'success',
+            title: 'Exito',
+            text: 'La cita se ha sido guardado correctamente'
+          })
+          this.router.navigate(['cita/listar'])
+          this.citaForm.reset();
+        },
+        error => {
+          console.log('oops', error)
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.error?.['mensaje']
+          })
+        });
+    } else {
+      console.log(this.citaForm.value);
+      this.citaService.guardarCita(cita).subscribe(
+        response => {
+          console.log('success', response)
+          Swal.fire({
+            icon: 'success',
+            title: 'Exito',
+            text: 'La cita se ha sido guardado correctamente'
+          })
+          this.router.navigate(['cita/listar'])
+          this.citaForm.reset();
+        },
+        error => {
+          console.log('oops', error)
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.error?.['mensaje']
+          })
+        });
+    }
+
   }
 
   listarCita(idCita: number) {
@@ -116,12 +140,25 @@ export class CrearCitaComponent implements OnInit {
     );
   }
 
-  llenarCamposEditar(cita: Cita){
+  llenarCamposEditar(cita: Cita) {
+    this.citaForm.controls['id'].setValue(cita.id);
     this.citaForm.controls['idUsuario'].setValue(cita.idUsuario);
     this.citaForm.controls['fechaCita'].setValue(this.pipe.transform(cita.fechaCita, 'yyyy-MM-ddTHH:mm:ss'));
     this.citaForm.controls['idEspecialidad'].setValue(cita.idEspecialidad);
     this.citaForm.controls['tipoMoneda'].setValue(cita.tipoMoneda);
     this.citaForm.controls['idMedico'].setValue(cita.idMedico);
+  }
+
+  public eliminarCita(id: number): void {
+    this.citaService.eliminaCita(id).subscribe(
+      (response: boolean) => {
+        console.log(response);
+        this.router.navigate(['cita/listar'])
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message)
+      }
+    );
   }
 
 }

@@ -23,6 +23,12 @@ export class CitaService {
                                                 this.http.optsName('crear/actualizar citas'));
   }
 
+  public actualizarCita(cita: Cita) {
+    return this.http.doPut<Cita, boolean>(`${environment.endpoint}/citas/${cita.id}`, cita,
+                                                this.http.optsName('crear/actualizar citas'));
+  }
+
+
   public eliminaCita(id: number) {
     return this.http.doDelete<boolean>(`${environment.endpoint}/citas/${id}`,
                                                  this.http.optsName('eliminar citas'));
