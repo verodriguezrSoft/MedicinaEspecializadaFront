@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  endpoint: 'http://localhost:8080/RestMedicinaPrepagada'
+  endpoint: 'http://localhost:8080/RestMedicinaPrepagada',
+  urlTrm: 'https://www.datos.gov.co/resource/ceyp-9c7c.json',
+  tokenTrm: 'JjZ6JrMR9SKo5CApGp2PX9KzJ'
 };
 
 /*
