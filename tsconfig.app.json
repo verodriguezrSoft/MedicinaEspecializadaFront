@@ -14,6 +14,9 @@
       "@home/*": [
         "src/app/feature/home/*"
       ],
+      "@cita/*": [
+        "src/app/feature/cita/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]
