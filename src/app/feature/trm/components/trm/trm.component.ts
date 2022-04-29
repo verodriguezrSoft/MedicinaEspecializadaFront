@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TrmService } from '../../shared/service/trm.service';
+import { Observable } from 'rxjs';
+import { TRM } from '../../model/trm';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-trm',
@@ -13,7 +17,7 @@ export class TrmComponent implements OnInit {
 
   constructor(protected trmService: TrmService, private datePipe: DatePipe) { }
 
-  public trmActual: Observable<Trm[]>;
+  public trmActual: Observable<TRM[]>;
 
   ngOnInit(): void {
     const milisegundoSpinner = 500;

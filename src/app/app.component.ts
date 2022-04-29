@@ -12,7 +12,6 @@ export class AppComponent {
   public companies: MenuItem[] = [
     { url: '/home', nombre: 'Home' },
     { url: '/cita', nombre: 'Citas' }
-    
   ];
 
   

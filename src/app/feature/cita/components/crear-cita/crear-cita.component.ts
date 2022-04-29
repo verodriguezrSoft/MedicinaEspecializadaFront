@@ -85,46 +85,44 @@ export class CrearCitaComponent implements OnInit {
       console.log(this.citaForm.value);
       this.citaService.actualizarCita(cita).subscribe(
         response => {
-          console.log('success', response)
-          Swal.fire({
-            icon: 'success',
-            title: 'Exito',
-            text: 'La cita se ha sido guardado correctamente'
-          })
+          this.successPopup(response);
           this.router.navigate(['cita/listar'])
           this.citaForm.reset();
         },
         error => {
-          console.log('oops', error)
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: error.error?.['mensaje']
-          })
+          this.errorPopup(error);
         });
     } else {
       console.log(this.citaForm.value);
       this.citaService.guardarCita(cita).subscribe(
         response => {
-          console.log('success', response)
-          Swal.fire({
-            icon: 'success',
-            title: 'Exito',
-            text: 'La cita se ha sido guardado correctamente'
-          })
+          this.successPopup(response)
           this.router.navigate(['cita/listar'])
           this.citaForm.reset();
         },
         error => {
-          console.log('oops', error)
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: error.error?.['mensaje']
-          })
+         this.errorPopup(error)
         });
     }
 
+  }
+
+  private successPopup(response) {
+    console.log('success', response)
+    Swal.fire({
+      icon: 'success',
+      title: 'Exito',
+      text: 'La cita se ha sido guardado correctamente'
+    })
+  }
+
+  private errorPopup(error){
+    console.log('oops', error)
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: error.error?.['mensaje']
+    })
   }
 
   listarCita(idCita: number) {

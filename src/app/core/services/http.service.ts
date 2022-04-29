@@ -21,6 +21,10 @@ export class HttpService {
     return this.setHeader('xhr-name', name);
   }
 
+  public optsTRM(name: string): Options {
+    return this.setHeader('X-App-Token', name);
+  }
+
   private setHeader(name: string, value: string) {
     const newopts = this.createDefaultOptions();
     newopts.headers = newopts.headers.set(name, value);

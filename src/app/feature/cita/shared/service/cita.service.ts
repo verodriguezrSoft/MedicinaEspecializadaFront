@@ -20,12 +20,12 @@ export class CitaService {
 
   public guardarCita(cita: Cita) {
     return this.http.doPost<Cita, boolean>(`${environment.endpoint}/citas`, cita,
-                                                this.http.optsName('crear/actualizar citas'));
+                                                this.http.optsName('crear'));
   }
 
   public actualizarCita(cita: Cita) {
     return this.http.doPut<Cita, boolean>(`${environment.endpoint}/citas/${cita.id}`, cita,
-                                                this.http.optsName('crear/actualizar citas'));
+                                                this.http.optsName('actualizar citas'));
   }
 
 
