@@ -15,7 +15,6 @@ describe('CrearCitaComponent', () => {
   let fixture: ComponentFixture<CrearCitaComponent>;
   let citaService: CitaService;
 
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CrearCitaComponent],
@@ -29,8 +28,7 @@ describe('CrearCitaComponent', () => {
       providers: [
         CitaService, HttpService, DatePipe
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -66,6 +64,4 @@ describe('CrearCitaComponent', () => {
     component.guardarCita();
   });
 
-  afterEach(() => { TestBed.resetTestingModule(); });
-  afterAll(() => { TestBed.resetTestingModule(); });
 });
