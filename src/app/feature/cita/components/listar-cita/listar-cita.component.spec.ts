@@ -45,9 +45,11 @@ describe('ListarCitaComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component listar citas', () => {
     expect(component).toBeTruthy();
-    
-    
+  });
+
+  it('deberia listar las citas', () => {
+    expect(2).toBe(component.citas.length)
   });
 });

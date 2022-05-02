@@ -35,7 +35,7 @@ export class CrearCitaComponent implements OnInit {
   medicos: Medico[] = [
     { id: 1, nombre: "Tatiana Salazar" },
     { id: 2, nombre: "Harold Moreno" },
-    { id: 3, nombre: "Calors Salazar" },
+    { id: 3, nombre: "Carlos Salazar" },
     { id: 4, nombre: "Jose Robert" },
   ]
 
@@ -99,7 +99,7 @@ export class CrearCitaComponent implements OnInit {
       this.citaService.guardarCita(cita).subscribe(
         response => {
           this.successPopup(response)
-          this.router.navigate(['cita/listar'])
+          this.router.navigate(['/cita/listar'])
           this.citaForm.reset();
         },
         error => {
