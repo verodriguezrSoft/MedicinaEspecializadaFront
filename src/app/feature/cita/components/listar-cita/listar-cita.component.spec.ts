@@ -50,6 +50,6 @@ describe('ListarCitaComponent', () => {
   });
 
   it('deberia listar las citas', () => {
-    expect(2).toBe(component.citas.length)
+    expect(2).toBe(component.listaCitas.length)
   });
 });
