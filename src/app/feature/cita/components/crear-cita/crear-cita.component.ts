@@ -6,7 +6,7 @@ import { Medico } from '../../shared/model/medico';
 import { Moneda } from '../../shared/model/moneda';
 import { CitaService } from '../../shared/service/cita.service';
 
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2"
 import { Cita } from '../../shared/model/cita';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
