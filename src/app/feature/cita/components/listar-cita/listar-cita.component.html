@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let cita of citas;">
+        <tr id="listaCitas" *ngFor="let cita of listaCitas;">
             <td>{{ cita.id  }}</td>
             <td>{{ cita.idUsuario  }}</td>
             <td>{{ cita.idEspecialidad | number }}</td>

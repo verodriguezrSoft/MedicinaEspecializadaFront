@@ -12,7 +12,7 @@ import { CitaService } from '../../shared/service/cita.service';
 export class ListarCitaComponent implements OnInit {
 
   citaForm: FormGroup;
-  public citas: Cita [] = [];
+  public listaCitas: Cita [] = [];
 
 
   constructor(
@@ -26,7 +26,7 @@ export class ListarCitaComponent implements OnInit {
   public getCitas(): void{
     this.citaService.consultarCita().subscribe(
       (response: Cita[]) => {
-        this.citas = response;
+        this.listaCitas = response;
       },
       (error: HttpErrorResponse) => {
         alert(error.message)
