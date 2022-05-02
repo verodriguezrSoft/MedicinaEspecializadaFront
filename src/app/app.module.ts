@@ -7,13 +7,18 @@ import { HomeComponent } from '@home/home.component';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { CitaModule } from '@cita/cita.module';
+import { TrmService } from './feature/trm/shared/service/trm.service';
+import { DatePipe } from '@angular/common';
+import { TrmComponent } from './feature/trm/components/trm/trm.component';
+// import { CitaService } from '@cita/shared/service/cita.service';
 // import { CitaModule } from './feature/cita/cita.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TrmComponent
   ],
   imports: [
     CitaModule,
@@ -21,7 +26,7 @@ import { CitaModule } from '@cita/cita.module';
     AppRoutingModule,
     CoreModule
   ],
-  providers: [CookieService],
+  providers: [CookieService, TrmService, DatePipe],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

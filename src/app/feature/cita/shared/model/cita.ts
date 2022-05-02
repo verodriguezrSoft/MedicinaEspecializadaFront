@@ -2,7 +2,7 @@ export class Cita{
     id: number
     idUsuario: number
     idEspecialidad: number
-    fechaCita: Date 
+    fechaCita: string
     idMedico: number
     valorTRM: number
     tipoMoneda: string
@@ -11,7 +11,7 @@ export class Cita{
         id: number,
         idUsuario: number,
         idEspecialidad: number,
-        fechaCita: Date,
+        fechaCita: string,
         idMedico: number,
         valorTRM: number,
         tipoMoneda: string

@@ -19,10 +19,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class CrearCitaComponent implements OnInit {
 
   citaForm: FormGroup;
-  pipe = new DatePipe('en-US');
   idCita: number;
   citaEditar: Cita;
-  public citas: Cita[] = []; s
+  public citas: Cita[] = [];
+  isShow = false;
 
   especialidades: Especialidad[] = [
     { id: 1, nombreEspecialidad: 'Cardiología clinica' },
@@ -48,7 +48,8 @@ export class CrearCitaComponent implements OnInit {
   constructor(
     protected citaService: CitaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private pipe: DatePipe
   ) {
   }
 
@@ -56,6 +57,7 @@ export class CrearCitaComponent implements OnInit {
     this.construirFormularioCita();
     this.idCita = this.route.snapshot.params['id'];
     if (this.idCita) {
+      this.isShow = true;
       this.listarCita(this.idCita)
     }
   }
@@ -71,12 +73,12 @@ export class CrearCitaComponent implements OnInit {
   private construirFormularioCita() {
     this.citaForm = new FormGroup({
       id: new FormControl(''),
-      idUsuario: new FormControl('', Validators.required),
-      fechaCita: new FormControl('', Validators.required),
-      idEspecialidad: new FormControl('', Validators.required),
-      idMedico: new FormControl('', Validators.required),
+      idUsuario: new FormControl('', [Validators.required, Validators.maxLength(11)]),
+      fechaCita: new FormControl('', [Validators.required]),
+      idEspecialidad: new FormControl('', [Validators.required, Validators.maxLength(11)]),
+      idMedico: new FormControl('',[Validators.required, Validators.maxLength(11)]),
       valorTRM: new FormControl(''),
-      tipoMoneda: new FormControl('', Validators.required)
+      tipoMoneda: new FormControl('', [Validators.required, Validators.maxLength(1000)])
     });
   }
 
@@ -152,18 +154,11 @@ export class CrearCitaComponent implements OnInit {
     this.citaService.eliminaCita(this.citaForm.value.id).subscribe(
       (response: boolean) => {
         console.log(response);
-        this.router.navigate(['cita/listar'])
+        this.router.navigate(['/cita/listar'])
       },
       (error: HttpErrorResponse) => {
         alert(error.message)
       }
     );
   }
-
-
-  public cancelar(): void {
-    this.router.navigate(['cita/listar'])
-    this.citaForm.reset();
-  }
-
 }

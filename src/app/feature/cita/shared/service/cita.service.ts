@@ -3,9 +3,7 @@ import { HttpService } from '@core/services/http.service';
 import { environment } from 'src/environments/environment';
 import { Cita } from '../model/cita';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CitaService {
 
   constructor(protected http: HttpService) {}

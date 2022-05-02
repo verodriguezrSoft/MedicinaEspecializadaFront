@@ -1,25 +1,25 @@
-<form class="text-center border border-light p-5" [formGroup]="citaForm" >
+<form class="text-center border border-light p-5" [formGroup]="citaForm">
   <p class="h4 mb-4">Agende su cita</p>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="idUsuario">Identificación del usuario</label>
       <input validar type="number" id="idUsuario" name="idUsuario" class="form-control" placeholder="Identificación"
-      formControlName="idUsuario" >
+        formControlName="idUsuario">
     </div>
     <div class="form-group col-md-6">
       <label for="fechaCita">Fecha cita</label>
-      <input type="datetime-local"  id="fechaCita" name="fechaCita" class="form-control" placeholder="Password"
-      formControlName="fechaCita" >
+      <input type="datetime-local" id="fechaCita" name="fechaCita" class="form-control" placeholder="Password"
+        formControlName="fechaCita">
     </div>
   </div>
 
   <div class="form-row">
-    
+
     <div class="form-group col-md-6">
       <label class="form-label">Especialidades</label>
       <div class="dropdown">
-        <select class="custom-select mr-sm-4"  id="idEspecialidad" name="idEspecialidad" 
-        formControlName="idEspecialidad">
+        <select class="custom-select mr-sm-4" id="idEspecialidad" name="idEspecialidad"
+          formControlName="idEspecialidad">
           <option value="default">----</option>
           <option [value]="especialidad.id" *ngFor="let especialidad of especialidades">
             {{especialidad.nombreEspecialidad}}
@@ -56,13 +56,14 @@
 
   <div class="form-row">
     <div class="form-group col-md-4">
-      <button type="submit" (click)="guardarCita()" class="btn btn-success">Guardar</button>
-    </div>
-    <div class="form-group col-md-4"  >
-      <button  class="btn btn-warning" (click)="eliminarCita()">Eliminar</button>
+      <button type="submit" [disabled]="!citaForm.valid" (click)="guardarCita()" routerLink="/cita/listar"
+        class="btn btn-success">Guardar</button>
     </div>
     <div class="form-group col-md-4">
-      <button  class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+      <button class="btn btn-warning" *ngIf="isShow" (click)="eliminarCita()" >Eliminar</button>
     </div>
-  </div> 
- </form>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-secondary" routerLink="/cita/listar">Cancelar</button>
+    </div>
+  </div>
+</form>

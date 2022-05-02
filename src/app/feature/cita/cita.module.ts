@@ -6,6 +6,7 @@ import { CrearCitaComponent } from './components/crear-cita/crear-cita.component
 import { ListarCitaComponent } from './components/listar-cita/listar-cita.component';
 import { CitaComponent } from './components/cita/cita.component';
 import { CitaService } from './shared/service/cita.service';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -19,6 +20,6 @@ import { CitaService } from './shared/service/cita.service';
     SharedModule
   
   ],
-  providers: [CitaService]
+  providers: [CitaService, DatePipe]
 })
 export class CitaModule { }

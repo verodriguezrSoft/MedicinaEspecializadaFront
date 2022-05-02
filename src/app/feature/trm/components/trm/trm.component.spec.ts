@@ -1,6 +1,7 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { TrmService } from '../../shared/service/trm.service';
 
@@ -15,7 +16,8 @@ describe('TrmComponent', () => {
       declarations: [ TrmComponent ],
       imports: [
         CommonModule,
-        HttpClientModule
+        HttpClientModule,
+        RouterTestingModule
       ],
       providers: [TrmService, HttpService, DatePipe]
     })
