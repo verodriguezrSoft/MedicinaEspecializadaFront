@@ -10,8 +10,6 @@ import { CitaModule } from '@cita/cita.module';
 import { TrmService } from './feature/trm/shared/service/trm.service';
 import { DatePipe } from '@angular/common';
 import { TrmComponent } from './feature/trm/components/trm/trm.component';
-// import { CitaService } from '@cita/shared/service/cita.service';
-// import { CitaModule } from './feature/cita/cita.module';
 
 
 @NgModule({

@@ -10,7 +10,6 @@ import { of } from 'rxjs';
 import { HttpService } from 'src/app/core/services/http.service';
 
 
-
 describe('CrearCitaComponent', () => {
   let component: CrearCitaComponent;
   let fixture: ComponentFixture<CrearCitaComponent>;
@@ -65,6 +64,8 @@ describe('CrearCitaComponent', () => {
     expect(component.citaForm.valid).toBeTruthy();
 
     component.guardarCita();
-    component.citaForm.reset();
   });
+
+  afterEach(() => { TestBed.resetTestingModule(); });
+  afterAll(() => { TestBed.resetTestingModule(); });
 });

@@ -88,7 +88,7 @@ export class CrearCitaComponent implements OnInit {
       this.citaService.actualizarCita(cita).subscribe(
         response => {
           this.successPopup(response);
-          this.router.navigate(['cita/listar'])
+          this.router.navigate(['/cita/listar'])
           this.citaForm.reset();
         },
         error => {
