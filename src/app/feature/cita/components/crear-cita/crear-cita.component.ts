@@ -8,7 +8,7 @@ import { CitaService } from '../../shared/service/cita.service';
 
 import Swal from "sweetalert2"
 import { Cita } from '../../shared/model/cita';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -47,7 +47,7 @@ export class CrearCitaComponent implements OnInit {
 
   constructor(
     protected citaService: CitaService,
-    private router: Router,
+    // private router: Router,
     private route: ActivatedRoute,
     private pipe: DatePipe
   ) {
@@ -88,7 +88,7 @@ export class CrearCitaComponent implements OnInit {
       this.citaService.actualizarCita(cita).subscribe(
         response => {
           this.successPopup(response);
-          this.router.navigate(['/cita/listar'])
+          // this.router.navigate(['/cita/listar'])
           this.citaForm.reset();
         },
         error => {
@@ -99,7 +99,7 @@ export class CrearCitaComponent implements OnInit {
       this.citaService.guardarCita(cita).subscribe(
         response => {
           this.successPopup(response)
-          this.router.navigate(['/cita/listar'])
+          // this.router.navigate(['/cita/listar'])
           this.citaForm.reset();
         },
         error => {
@@ -154,7 +154,7 @@ export class CrearCitaComponent implements OnInit {
     this.citaService.eliminaCita(this.citaForm.value.id).subscribe(
       (response: boolean) => {
         console.log(response);
-        this.router.navigate(['/cita/listar'])
+        // this.router.navigate(['/cita/listar'])
       },
       (error: HttpErrorResponse) => {
         alert(error.message)
