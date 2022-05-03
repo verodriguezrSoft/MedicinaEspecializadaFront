@@ -1,7 +1,6 @@
 export class TRM{
     constructor(
-        public valor: String, 
-        public vigenciaDesde: string, 
-        public vigenciaHasta: string    
-        ){}
+        public valor: string,
+        public vigenciaDesde: string,
+        public vigenciaHasta: string){}
 }

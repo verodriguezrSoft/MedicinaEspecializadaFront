@@ -18,7 +18,6 @@ import { DatePipe } from '@angular/common';
   imports: [
     CitaRoutingModule,
     SharedModule
-  
   ],
   providers: [CitaService, DatePipe]
 })

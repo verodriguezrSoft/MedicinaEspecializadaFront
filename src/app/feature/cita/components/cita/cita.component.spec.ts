@@ -9,8 +9,6 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 describe('CitaComponent', () => {
   let component: CitaComponent;
   let fixture: ComponentFixture<CitaComponent>;
-  
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CitaComponent ],

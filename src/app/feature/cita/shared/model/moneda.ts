@@ -1,4 +1,4 @@
 export interface Moneda{
-    tipo: string,
-    nombreCompleto: string
+    tipo: string;
+    nombreCompleto: string;
 }

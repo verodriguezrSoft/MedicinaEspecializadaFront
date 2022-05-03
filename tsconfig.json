@@ -30,6 +30,12 @@
       "@home/*": [
         "src/app/feature/home/*"
       ],
+      "@trm*": [
+        "src/app/feature/trm/model/trm"
+      ],
+      "@servceTrm/*": [
+        "src/app/feature/trm/shared/service/*"
+      ],
       "@cita/*": [
         "src/app/feature/cita/*"
       ],

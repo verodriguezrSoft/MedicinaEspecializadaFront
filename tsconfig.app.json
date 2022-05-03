@@ -17,6 +17,12 @@
       "@cita/*": [
         "src/app/feature/cita/*"
       ],
+      "@trm": [
+        "src/app/feature/trm/model/trm"
+      ],
+      "@servceTrm/*": [
+        "src/app/feature/trm/shared/service/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]

@@ -20,7 +20,8 @@ export class ListarCitaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCitas(); 
+    this.getCitas();
+
   }
 
   public getCitas(): void{
@@ -29,9 +30,8 @@ export class ListarCitaComponent implements OnInit {
         this.listaCitas = response;
       },
       (error: HttpErrorResponse) => {
-        alert(error.message)
-      } 
-    );
+        alert(error.message);
+      });
   }
 
   public eliminarCita(id: number): void{
@@ -41,8 +41,7 @@ export class ListarCitaComponent implements OnInit {
         this.getCitas();
       },
       (error: HttpErrorResponse) => {
-        alert(error.message)
-      } 
-    );
+        alert(error.message);
+      });
   }
 }

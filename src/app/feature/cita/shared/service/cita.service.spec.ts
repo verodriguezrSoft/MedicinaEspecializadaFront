@@ -29,23 +29,22 @@ describe('CitaService', () => {
   it('deberia listar citas', () => {
     const dummyCitas: Cita[] = [
       new Cita(1, 1234, 1, '2019-05-05 11:20:50', 1234, 2500.0, 'USD'),
-      new Cita(2, 2222, 2, '2019-05-05 11:20:50', 1234, 3700.0, 'USD'), 
+      new Cita(2, 2222, 2, '2019-05-05 11:20:50', 1234, 3700.0, 'USD'),
     ];
-    service.consultarCita().subscribe( citas =>{
+    service.consultarCita().subscribe( citas => {
       expect(citas.length).toBe(2);
-      expect(citas).toEqual(dummyCitas)
+      expect(citas).toEqual(dummyCitas);
     });
     const req = httpMock.expectOne(apiEndPointCitasConsulta);
-    expect(req.request.method).toBe('GET')
-    req.flush(dummyCitas)
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyCitas);
   });
 
 
   it('deberia crear una cita', () => {
-    const dummyCita = new Cita(1, 1234, 1, '2019-05-05 11:20:50', 1234, 2500.0, 'USD')
-    
-    service.guardarCita(dummyCita).subscribe(response =>{
-      expect(response).toEqual(true)
+    const dummyCita = new Cita( 1, 1234, 1, '2019-05-05 11:20:50', 1234, 2500.0, 'USD');
+    service.guardarCita(dummyCita).subscribe(response => {
+      expect(response).toEqual(true);
     });
     const req = httpMock.expectOne(apiEndPointCitas);
     expect(req.request.method).toBe('POST');
@@ -53,14 +52,12 @@ describe('CitaService', () => {
   });
 
   it('deberia eliminar un usuario', () => {
-    const dummyCita = new Cita(1, 1234, 1, '2019-05-05 11:20:50', 1234, 2500.0, 'USD')
-    service.eliminaCita(dummyCita.id).subscribe(response =>{
-      expect(response).toEqual(true)
+    const dummyCita = new Cita(1, 1234, 1, '2019-05-05 11:20:50', 1234, 2500.0, 'USD');
+    service.eliminaCita(dummyCita.id).subscribe(response => {
+      expect(response).toEqual(true);
     });
     const req = httpMock.expectOne(`${apiEndPointCitas}/1`);
     expect(req.request.method).toBe('DELETE');
     req.event(new HttpResponse<boolean>({body: true}));
-  })
-
-
+  });
 });

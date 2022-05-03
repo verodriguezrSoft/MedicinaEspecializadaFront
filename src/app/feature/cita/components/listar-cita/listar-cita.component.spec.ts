@@ -13,18 +13,14 @@ describe('ListarCitaComponent', () => {
   let component: ListarCitaComponent;
   let fixture: ComponentFixture<ListarCitaComponent>;
   let citaService: CitaService;
-  const listaCitas: Cita[] = 
-  [
+  const listaCitas: Cita[] = [
     new Cita(1, 1234, 1, '2019-05-05 11:20:50', 1234, 2500.0, 'USD'),
-    new Cita(2, 2222, 2, '2019-05-05 11:20:50', 1234, 3700.0, 'USD'), 
-  ];
+    new Cita(2, 2222, 2, '2019-05-05 11:20:50', 1234, 3700.0, 'USD')];
 
 
   beforeEach(waitForAsync (() => {
      TestBed.configureTestingModule({
-      declarations: [ 
-        ListarCitaComponent
-      ],
+      declarations: [ ListarCitaComponent ],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -39,9 +35,9 @@ describe('ListarCitaComponent', () => {
     fixture = TestBed.createComponent(ListarCitaComponent);
     component = fixture.componentInstance;
     citaService = TestBed.inject(CitaService);
-    spyOn(citaService, "consultarCita").and.returnValue(
+    spyOn(citaService, 'consultarCita').and.returnValue(
       of(listaCitas)
-    )
+    );
     fixture.detectChanges();
   });
 
@@ -50,6 +46,6 @@ describe('ListarCitaComponent', () => {
   });
 
   it('deberia listar las citas', () => {
-    expect(2).toBe(component.listaCitas.length)
+    expect(2).toBe(component.listaCitas.length);
   });
 });
