@@ -8,6 +8,7 @@ import { CitaService } from '../../shared/service/cita.service';
 import { CrearCitaComponent } from './crear-cita.component';
 import { of } from 'rxjs';
 import { HttpService } from 'src/app/core/services/http.service';
+import { TrmService } from 'src/app/feature/trm/shared/service/trm.service';
 
 
 describe('CrearCitaComponent', () => {
@@ -26,7 +27,7 @@ describe('CrearCitaComponent', () => {
         FormsModule
       ],
       providers: [
-        CitaService, HttpService, DatePipe
+        CitaService, HttpService, DatePipe, TrmService
       ]
     }).compileComponents();
   });
@@ -57,6 +58,7 @@ describe('CrearCitaComponent', () => {
     component.citaForm.controls.idEspecialidad.setValue(2);
     component.citaForm.controls.tipoMoneda.setValue('USD');
     component.citaForm.controls.idMedico.setValue(1);
+    component.citaForm.controls.valorTRM.setValue(3520);
     expect(component.citaForm.valid).toBeTruthy();
 
     component.guardarCita();
@@ -71,7 +73,7 @@ describe('CrearCitaComponent', () => {
     component.citaForm.controls.idEspecialidad.setValue(2);
     component.citaForm.controls.tipoMoneda.setValue('USD');
     component.citaForm.controls.idMedico.setValue(1);
-    component.citaForm.controls.valorTRM.setValue(3520.0);
+    component.citaForm.controls.valorTRM.setValue(3520);
     expect(component.citaForm.valid).toBeTruthy();
 
     component.guardarCita();

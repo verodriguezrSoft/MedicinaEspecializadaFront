@@ -10,6 +10,8 @@ import Swal from "sweetalert2"
 import { Cita } from '../../shared/model/cita';
 import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { TrmService } from 'src/app/feature/trm/shared/service/trm.service';
+import { TRM } from 'src/app/feature/trm/model/trm';
 
 @Component({
   selector: 'app-crear-cita',
@@ -23,6 +25,7 @@ export class CrearCitaComponent implements OnInit {
   citaEditar: Cita;
   public citas: Cita[] = [];
   isShow = false;
+  trm: TRM[];
 
   especialidades: Especialidad[] = [
     { id: 1, nombreEspecialidad: 'Cardiología clinica' },
@@ -49,23 +52,25 @@ export class CrearCitaComponent implements OnInit {
     protected citaService: CitaService,
     // private router: Router,
     private route: ActivatedRoute,
-    private pipe: DatePipe
+    private pipe: DatePipe,
+    private trmService: TrmService
   ) {
   }
 
   ngOnInit(): void {
     this.construirFormularioCita();
+    this.consularTRM();
     this.idCita = this.route.snapshot.params['id'];
-    if (this.idCita) {
-      this.isShow = true;
-      this.listarCita(this.idCita)
-    }
+      if (this.idCita) {
+        this.isShow = true;
+        this.listarCita(this.idCita)
+      }
   }
 
   guardarCita() {
     console.log('Guardar' + this.citaForm.value.id)
     this.citaForm.value.fechaCita = this.pipe.transform(this.citaForm.value.fechaCita, 'yyyy-MM-dd HH:mm:ss')
-    this.citaForm.value.valorTRM = 3700.00
+    // this.citaForm.value.valorTRM = 7000;
     this.registrarCita(this.citaForm.value)
   }
 
@@ -158,6 +163,17 @@ export class CrearCitaComponent implements OnInit {
       },
       (error: HttpErrorResponse) => {
         alert(error.message)
+      }
+    );
+  }
+
+  private consularTRM(){
+    const DIAS_MAXIMOS_VIGENCIA_TRM = 1;
+    const fecha = new Date(new Date().setDate(new Date().getDate() - DIAS_MAXIMOS_VIGENCIA_TRM));
+    const fechaTransformada = this.pipe.transform(fecha, 'yyyy-MM-dd');
+    this.trmService.consultarPorFuera(fechaTransformada).subscribe(
+      resonse => {
+         this.trm = resonse;
       }
     );
   }

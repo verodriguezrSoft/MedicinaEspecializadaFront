@@ -31,21 +31,23 @@ describe('workspace-project Alquiler', () => {
         cita.ingresarEspecialidad(ESPECIALIDAD);
         cita.ingresarTipoMoneda(TIPO_MONEDA);
         cita.ingresarMedico(MEDICO);
+        // browser.sleep(3000)
         cita.clickBotonGuardarCita();
 
         // Adicionamos las validaciones despues de la creación
         page.navigateTo();
         navBar.clickBotonCitas();
+        // browser.sleep(3000)
         cita.clickBotonListarCitas();
 
-        expect(8).toBe(cita.contarCitas());
+        expect(6).toBe(cita.contarCitas());
     });
 
     it('Deberia listar citas', () => {
         page.navigateTo();
         navBar.clickBotonCitas();
         cita.clickBotonListarCitas();
-        expect(8).toBe(cita.contarCitas());
+        expect(6).toBe(cita.contarCitas());
     });
 
     afterEach(async () => {
